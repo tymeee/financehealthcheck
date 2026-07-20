@@ -15,11 +15,8 @@ st.set_page_config(page_title="Private Budget Analyzer", page_icon="📊", layou
 st.title("Private Budget Analyzer")
 st.caption("Budget input → structured Gemini extraction → deterministic metrics → Gemini explanation")
 
-with st.sidebar:
-    st.header("Settings")
-    api_key = st.text_input("Gemini API key", value=os.getenv("GEMINI_API_KEY", ""), type="password")
-    model = st.text_input("Gemini model", value=os.getenv("GEMINI_MODEL", "gemini-2.5-flash"))
-    liquid_savings = st.number_input("Liquid savings (optional)", min_value=0.0, value=None, placeholder="For runway")
+api_key = st.secrets['api']
+model= "gemini-3.5-flash"
 
 uploaded = st.file_uploader("Upload budget data", type=["csv", "xlsx", "xls", "png", "jpg", "jpeg", "webp"])
 pasted = st.text_area("Or paste/type budget details", height=180, placeholder="Monthly income: 5000\nRent: 1500 ...")
