@@ -41,7 +41,7 @@ if budget_input := st.session_state.get("budget_input"):
             try:
                 with st.spinner("Extracting and analyzing..."):
                     budget = extract_budget(api_key, model, budget_input)
-                    metrics = calculate_metrics(budget, liquid_savings)
+                    metrics = calculate_metrics(budget)
                     narrative = analyze_budget(api_key, model, budget, metrics)
                 st.session_state.update(budget=budget, metrics=metrics, narrative=narrative)
             except Exception as exc:
