@@ -35,6 +35,8 @@ def analyze_budget(api_key: str, model: str, budget: ExtractedBudget, metrics: F
         "Analyze this budget using only the supplied data and calculated metrics. Explain the current "
         "position, identify 3 prioritized actions, and state uncertainties. Never claim certainty, provide tax/legal "
         "advice, or invent missing data. Keep it practical and concise.\n\n" 
+        "Provide users with a financial health score based on the analysis, make this score out of 100 and provide users 3 reasons why they were given the score they were given"
+        "scoring is as follows (print this for users to know as well): 0-20 very dire, fix finances immediately, 20-40 barely above water, 40-60 doing fine but could fail very quickly, 60-80 generally doing well, but some weaknesses here and there, 80-100 - exceptionally well, very few gaps"
         """
         Write the financial analysis in clean Markdown.
         
