@@ -5,7 +5,7 @@ from collections import defaultdict
 from models import ExtractedBudget, FinancialMetrics
 
 
-def calculate_metrics(budget: ExtractedBudget, liquid_savings: float | None = None) -> FinancialMetrics:
+def calculate_metrics(budget: ExtractedBudget| None  = None) -> FinancialMetrics:
     income = sum(t.amount for t in budget.transactions if t.kind == "income")
     expenses = sum(t.amount for t in budget.transactions if t.kind == "expense")
     fixed = sum(t.amount for t in budget.transactions if t.kind == "expense" and t.recurring)
@@ -23,6 +23,5 @@ def calculate_metrics(budget: ExtractedBudget, liquid_savings: float | None = No
         fixed_expense_pct=round(fixed / expenses * 100, 2) if expenses else None,
         top_expense_category=top,
         top_expense_category_amount=round(categories.get(top, 0), 2) if top else 0,
-        runway_months=round(liquid_savings / expenses, 2) if liquid_savings is not None and expenses else None,
     )
 
