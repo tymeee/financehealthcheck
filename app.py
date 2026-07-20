@@ -16,7 +16,7 @@ st.title("Private Budget Analyzer")
 st.caption("Budget input → structured Gemini extraction → deterministic metrics → Gemini explanation")
 
 api_key = st.secrets['api']
-model= "gemini-2.5-flash
+model= "gemini-2.5-flash"
 
 uploaded = st.file_uploader("Upload budget data", type=["csv", "xlsx", "xls", "png", "jpg", "jpeg", "webp"])
 pasted = st.text_area("Or paste/type budget details", height=180, placeholder="Monthly income: 5000\nRent: 1500 ...")
